@@ -1,0 +1,3 @@
+Si progetti una pagina di giornale in cui viene pubblicato un articolo con foto e pubblicità. 
+Il tema dell’articolo è libero ma deve essere di attualità così poi possiamo pubblicarlo su Radio Panetti News.
+
