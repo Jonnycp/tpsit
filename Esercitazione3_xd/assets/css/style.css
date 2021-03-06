@@ -7,6 +7,7 @@ Design by prof. Mastrandrea
 */
 body{
   margin: 0px;
+  overflow-x: hidden;
 }
 
 .wrapper{
@@ -294,7 +295,7 @@ footer span{
   color: #707070;
 }
 
-footer .wrapper img + img{
+footer .wrapper a + a{
   padding-left: 28px;
   padding-right: 40px;
 }
