@@ -1,0 +1,176 @@
+/*
+##############################
+Created by Jonathan Caputo
+Last update: 03/04/2021
+Design by prof. Mastrandrea
+##############################
+*/
+
+/* RESET */
+*{
+  margin: 0;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* SFONDO */
+#wrapper{
+  height: 100vh;
+  background-image: url(../img/2x_Sfondo.png);
+  background-repeat: no-repeat;
+  background-size: cover; /*104% su per parte che esce, ma poi su telefoni parte non visibile */
+  background-position: center;
+}
+
+#wrapper::before{
+  content: "";
+  display: block;
+  height: 100vh;
+  background: linear-gradient(rgba(119, 119, 119, 0.6) 0%, rgba(248, 248, 248, 0) 100%);
+}
+
+/* NAVBAR */
+header{
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+header .container{
+  display: flex;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-top: 1%;
+}
+
+.brand{
+  flex-grow: 1;
+}
+
+.brand img{
+  min-width: 14%;
+}
+
+.links{
+  display: flex;
+  align-self: center;
+}
+
+.item{
+  width: 6em; /*6 volte il font*/
+  /*Non capisco perchè esce dal contenitore*/
+}
+
+.item a{
+  font-family: "Merriweather";
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+  color: #fff;
+  text-decoration: none;
+}
+
+.item + .item{
+  margin-left: 18%;
+}
+
+/* MAIN */
+#main{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title{
+  position: relative;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  font-size: 4vw;
+  text-align: center;
+  color: #fff;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-bottom: 5%;
+}
+
+.title::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: #343434;
+}
+
+.title::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: #343434;
+}
+
+.subtitle{
+  font-family: "Hoefler Text", serif;
+  font-weight: 400;
+  font-size: 2vw;
+  text-align: center;
+  color: #fff;
+  padding-bottom: 4%;
+  position: relative;
+}
+
+.subtitle::after{
+  content: "";
+  position: absolute;
+  bottom: -4%;
+  right: 34%;
+  width: 32%;
+  height: 3px;
+  background: #FFFFFF;
+}
+
+.button{
+  margin-top: 4%;
+  padding: 1% 6% 1% 6%;
+  display: block;
+  margin-left: 33%;
+  margin-right: 33%;
+  background-color: #FFFFFF;
+  border: 1px solid #707070;
+  border-radius: 15px;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 30px;
+  text-align: center;
+  color: #080c71;
+}
+
+/* FOOTER */
+footer{
+  position: absolute;
+  bottom: 3%;
+  width: 100%;
+}
+
+footer .links{
+  margin-right: 2%;
+  justify-content: flex-end;
+}
+
+.fotter-item + .fotter-item{
+  margin-left: 4%
+}
