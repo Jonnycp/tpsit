@@ -1,0 +1,38 @@
+/* Helvetica Neue */
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url('../font/Helvetica Neue_Bold.ttf') format("truetype");
+  font-weight: bold;
+}
+
+/* SF Pro Text */
+@font-face {
+  font-family: "SF Pro Text";
+  src: url('../font/SF_Pro_Text_Bold.otf') format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url('../font/SF_Pro_Text_Regular.ttf') format("truetype");
+  font-weight: normal;
+}
+
+/* SF Pro Display */
+@font-face {
+  font-family: "SF Pro Display";
+  src: url('../font/SF_Pro_Display_Bold.otf') format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url('../font/SF_Pro_Display_Regular.ttf') format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url('../font/SF_Pro_Display_Light.otf') format("opentype");
+  font-weight: 300;
+}
