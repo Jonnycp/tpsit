@@ -1,0 +1,75 @@
+/*
+############################################################
+fonts.css
+Created by Jonathan Caputo, Andrea Losacco, Daniele Rutigliano
+Last update: 22/05/2021
+############################################################
+*/
+
+/* Josefine Sans: Regular, SemiBold, Bold */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap');
+
+/* Newsreader: Regular */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader&display=swap');
+
+/*Roboto: Regular */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+/* FONT FAMILY */
+.font-josefine{
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.font-newsreader{
+  font-family: "Newsreader", serif;
+}
+
+.font-roboto{
+  font-family: "Roboto", sans-serif;
+}
+
+
+/* FONT WEIGHT */
+.fw-bold{
+  font-weight: 700;
+}
+
+.fw-semibold{
+  font-weight: 600;
+}
+
+.fw-normal{
+  font-weight: 400;
+}
+
+
+/* LINE HEIGHT */
+.lh-60{
+  line-height: 60px;
+}
+
+.lh-51{
+  line-height: 51px;
+}
+
+.lh-42{
+  line-height: 42px;
+}
+
+.lh-24{
+  line-height: 24px;
+}
+
+.lh-21{
+  line-height: 21px;
+}
+
+.lh-15{
+  line-height: 15px;
+}
+
+/* TEXT DECORATIONS */
+.td-none{
+  text-decoration: none;
+}

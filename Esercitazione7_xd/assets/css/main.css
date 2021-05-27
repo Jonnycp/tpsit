@@ -1,0 +1,21 @@
+/*
+############################################################
+main.css
+Created by Jonathan Caputo, Andrea Losacco, Daniele Rutigliano
+Last update: 26/05/2021
+############################################################
+*/
+
+@import "./colors.css";
+@import "./fonts.css";
+@import "./utility.css";
+
+@import "./navbar.css";
+@import "./hero.css";
+@import "./podcast.css";
+@import "./magazine.css";
+@import "./footer.css";
+
+*{
+  margin: 0px;
+}

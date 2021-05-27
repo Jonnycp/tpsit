@@ -1,0 +1,42 @@
+/*
+############################################################
+footer.css
+Created by Jonathan Caputo, Andrea Losacco, Daniele Rutigliano
+Last update: 27/05/2021
+############################################################
+*/
+
+#footer{
+  border-top: 2px solid #707070;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#footer .logo{
+  font-size: 21px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+#footer h6{
+  font-size: 15px;
+}
+
+#footer span{
+  padding-left: 2px;
+}
+
+@media screen and (max-width: 575px) {
+  #footer .elements{
+    flex-direction: column;
+  }
+
+  #footer .logo{
+    padding-bottom: 20px;
+    padding-right: 0px;
+  }
+
+  #footer .slogan{
+    padding-bottom: 10px;
+  }
+}

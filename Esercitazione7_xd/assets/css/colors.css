@@ -1,0 +1,93 @@
+/*
+############################################################
+colors.css
+Created by Jonathan Caputo, Andrea Losacco, Daniele Rutigliano
+Last update: 22/05/2021
+############################################################
+*/
+
+:root {
+  --primary: #FF5300;
+  --secondary: #264653;
+  --success: #2A9D8F;
+  --danger: #F4A261;
+  --warning: #E9C46A;
+  --info: #777777;
+  --light: #C2C2C2;
+  --dark: #222222;
+  --white: #FFFFFF;
+}
+
+/* BACKGROUND COLORS */
+.bgc-primary{
+  background: var(--primary)
+}
+
+.bgc-secondary{
+  background: var(--secondary)
+}
+
+.bgc-success{
+  background: var(--success)
+}
+
+.bgc-danger{
+  background: var(--danger)
+}
+
+.bgc-warning{
+  background: var(--warning)
+}
+
+.bgc-info{
+  background: var(--info)
+}
+
+.bgc-light{
+  background: var(--light)
+}
+
+.bgc-dark{
+  background: var(--dark)
+}
+
+.bgc-white{
+  background: var(--white)
+}
+
+/* TEXT COLORS */
+.ctext-primary{
+  color: var(--primary)
+}
+
+.ctext-secondary{
+  color: var(--secondary)
+}
+
+.ctext-success{
+  color: var(--success)
+}
+
+.ctext-danger{
+  color: var(--danger)
+}
+
+.ctext-warning{
+  color: var(--warning)
+}
+
+.ctext-info{
+  color: var(--info)
+}
+
+.ctext-light{
+  color: var(--light)
+}
+
+.ctext-dark{
+  color: var(--dark)
+}
+
+.ctext-white{
+  color: var(--white)
+}

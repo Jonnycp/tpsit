@@ -1,0 +1,88 @@
+/*
+############################################################
+utility.css
+Created by Jonathan Caputo, Andrea Losacco, Daniele Rutigliano
+Last update: 27/05/2021
+############################################################
+*/
+
+.pt-50{
+  padding-top: 50px;
+}
+
+.pl-20{
+  padding-left: 20px;
+}
+
+.py-15{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.pt-25{
+  padding-top: 25px;
+}
+
+.pb-25{
+  padding-bottom: 25px;
+}
+
+.pb-20{
+  padding-bottom: 20px;
+}
+
+.mb-15{
+  margin-bottom: 15px;
+}
+
+.pb-10{
+  padding-bottom: 10px;
+}
+
+.pt-10{
+  padding-top: 10px;
+}
+
+.mb-160{
+  margin-bottom: 160px;
+}
+
+.container{
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 575px) {
+  #podcast .pt-25{
+    padding-top: 20px;
+  }
+
+  #podcast .player.pt-25{
+    padding-top: 10px;
+  }
+
+  #podcast .pb-20{
+    padding-bottom: 10px;
+  }
+
+  #magazine.pt-50{
+    padding-top: 35px;
+  }
+
+  #magazine .pb-25{
+    padding-bottom: 10px;
+  }
+
+  #magazine .pb-25.latest{
+    padding-bottom: 45px;
+  }
+
+  #magazine .mb-160{
+    margin-bottom: 195px;
+  }
+
+  #footer .py-15{
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
+
+}
