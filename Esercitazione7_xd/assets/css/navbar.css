@@ -1,45 +1,44 @@
-/*
-############################################################
-navbar.css
-Created by Jonathan Caputo, Andrea Losacco, Daniele Rutigliano
-Last update: 27/05/2021
-############################################################
-*/
-
-#navbar{
- padding: 11px 20px 7px 20px;
-}
-
-#navbar a{
-  font-size: 18px;
-}
-
-#navbar .btn{
-  margin-left: 20px;
-  border-radius: 5px;
-  padding: 10px 20px;
-}
-
-#navbar a img{
-  padding-right: 2px;
-}
-
-#navbar h1 a{
-  font-size: 21px;
-  text-transform: uppercase;
-}
-
-@media screen and (max-width: 575px) {
-  #navbar h1 img{
-    min-width: 25px;
-  }
-
-  #navbar{
-    padding: 8px 10px;
-  }
-
-  #navbar a{
-    font-size: 16px;
-  }
-
-}
+/*
+############################################################
+navbar.css
+Created by Jonathan Caputo, Andrea Losacco, Daniele Rutigliano
+Last update: 27/05/2021
+############################################################
+*/
+
+#navbar {
+  padding: 11px 20px 7px 20px;
+}
+
+#navbar a {
+  font-size: 18px;
+}
+
+#navbar .btn {
+  margin-left: 20px;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+#navbar a img {
+  padding-right: 2px;
+}
+
+#navbar h1 a {
+  font-size: 21px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 575px) {
+  #navbar h1 img {
+    min-width: 25px;
+  }
+
+  #navbar {
+    padding: 8px 10px;
+  }
+
+  #navbar a {
+    font-size: 16px;
+  }
+}

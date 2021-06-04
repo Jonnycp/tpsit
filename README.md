@@ -10,4 +10,4 @@ Repo contenente tutti i lavori di tpsit nell'anno scolastico 2020-2021
 |  5 |  Esercitazione4 rows e columns  |    1.0   | 18 marzo 2021 | [Link: Esercitazione4 Analisi figma.com](https://github.com/Jonnycp/tpsit/blob/master/Esercitazione4/%23FigmaIsBetter%20-1920x1080.pdf) |
 |  6 |  Esercitazione5 (Esercitazione2 con flex)  |    1.0   | 3 aprile 2021 | [Link: Esercitazione2 migliorata](https://jonnycp.github.io/tpsit/Esercitazione5_xd/) |
 |  7 |  Esercitazione6 (Grid system 1.0)  |    1.0   | 24 aprile 2021 | [Link: Esercitazione6 con grid system](https://jonnycp.github.io/tpsit/Esercitazione6_xd/) |
-|  8 |  Esercitazione7 (Responsive di Gruppo)  |    1.0   | 27 maggio 2021 | [Link: Esercitazione7: lavoro di gruppo](https://jonnycp.github.io/tpsit/Esercitazione7_xd/) |
+|  8 |  Esercitazione7 (Responsive di Gruppo)  |    1.1   | 27 maggio 2021 | [Link: Esercitazione7: lavoro di gruppo](https://jonnycp.github.io/tpsit/Esercitazione7_xd/) |
