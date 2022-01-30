@@ -1,5 +1,5 @@
 # LAVORI DI TPSIT
-Repo contenente tutti i lavori di tpsit nell'anno scolastico 2020-2021
+Repo contenente tutti i lavori di tpsit nell'anno scolastico 2020-2021 (3a) e 2021-2022 (4a)
 
 | ID |             Compito             | Versione |       Data      |       Anno      |                             Link                                |
 |:--:|:-------------------------------:|:--------:|:---------------:|:---------------:|:------------------------------------------------------------------:|
