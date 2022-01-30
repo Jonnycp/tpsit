@@ -1,0 +1,127 @@
+@import "./variabiles.css";
+
+*{
+    margin: 0;
+}
+
+.background{
+    width: 100%;
+    height: 100vh;
+    background: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game{
+    background: var(--white);
+    padding: 30px 7.5vw 45px 7.5vw;
+}
+
+.title{
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--primary);
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    line-height: 78px;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--primary);
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.text.name{
+    margin-bottom: 16px;
+}
+
+.text.score{
+    margin-top: 16px;
+}
+
+.history{
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--secondary);
+    font-size: 22px;
+    line-height: 39px;
+    font-weight: normal;
+    text-align: center;
+    margin: 0 35px;
+}
+
+.history strong{
+    font-weight: bold;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.history h3:nth-child(-n+2){
+    margin-bottom: 23px;
+}
+
+.btns{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btns div{
+    margin-bottom: 20px;
+}
+
+.btns div button:nth-child(-n+2){
+    margin-right: 16px;
+}
+
+.btns button{
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    border-radius: 10px;
+    padding: 12px 30px;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    min-width: 175px;
+}
+
+.btns button:hover{
+    filter: grayscale(1);
+}
+
+.btns button.btn-danger{
+    background: var(--danger)
+}
+
+.btns button.btn-secondary{
+    background: var(--secondary)
+}
+
+.hide{
+    display: none;
+}
+
+.flexBasis{
+    flex-basis: calc(100% / 3);
+}
+
+@media screen and (max-width: 645px) {
+    .game{
+        padding: 30px 0 45px 0;
+    }
+}

@@ -1,0 +1,7 @@
+:root{
+    --primary: #FFA62B;
+    --secondary: #16697A;
+    --danger: #E75163;
+    --background: linear-gradient(180deg, #489FB5 0%, #82C0CC 100%);
+    --white: #EDE7E3;
+}

@@ -1,0 +1,48 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Sasso Carta Forbici">
+    <meta name="description" content="Gioca ora a Sasso Carta Forbici contro il computer">
+    <meta name="author" content="Jonathan Caputo">
+
+    <title>Sasso Carta Forbici</title>
+
+    <link rel="stylesheet" href="./assets/style/styles.css">
+    <link rel="stylesheet" href="./assets/style/font.css">
+</head>
+<body>
+    <div class="background container-fluid">
+        <section class="game">
+            <h1 class="title">Giochiamo!</h1>
+            <div class="d-flex">
+                <div data-score="user" class="flexBasis">
+                    <h2 class="text name">Tu</h2>
+                    <img src="./assets/img/paper.png" class="hide"/>
+                    <h3 class="text score">0</h3>
+                </div>
+                <div class="history flexBasis">
+                    <h3>Sasso, Carta o Forbici?</h3>
+                </div>
+                <div data-score="bot" class="flexBasis">
+                    <h2 class="text name">Computer</h2>
+                    <img src="./assets/img/scissors.png" class="hide"/>
+                    <h3 class="text score">0</h3>
+                </div>
+            </div>
+            <div class="btns">
+                <div>
+                    <button class="btn-secondary" data-type="sasso">Sasso</button>
+                    <button class="btn-secondary" data-type="carta">Carta</button>
+                    <button class="btn-secondary" data-type="forbici">Forbici</button>
+                </div>
+
+                <button class="btn-danger" data-type="reset">Ricomincia</button>
+                
+            </div>
+        </section>
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
