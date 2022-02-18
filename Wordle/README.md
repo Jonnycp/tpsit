@@ -1,0 +1,2 @@
+# Clone di [Wordle](https://www.nytimes.com/games/wordle/)
+[![Tempo Speso](https://wakatime.com/badge/user/c82f4683-34a5-4724-a5f4-5c2a6f37d55c/project/e1af1fc2-3209-4670-8010-8ce4afa78251.svg?style=for-the-badge)](https://wakatime.com/badge/user/c82f4683-34a5-4724-a5f4-5c2a6f37d55c/project/e1af1fc2-3209-4670-8010-8ce4afa78251)
