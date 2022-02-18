@@ -1,0 +1,125 @@
+@import url("./variables.css");
+
+/* Reset */
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header div button{
+    background: transparent;
+    border: 0;
+    padding: 0 4px;
+    cursor: pointer;
+}
+
+header div{
+    align-items: center;
+    display: flex;
+}
+
+header .title{
+    font-family: "Karnak-Condensed", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+}
+
+/* Game */
+.game{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 500px;
+    align-items: center;
+    justify-content: space-around;
+    min-height: calc(100% - 50px);
+}
+
+/* Board */
+.boardContainer{
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.board{
+    padding: 10px;
+    width: 70%;
+}
+
+.board .row{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 9px;
+}
+
+.tile{
+    border: 2px solid var(--border-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
+    font-family: "Clear Sans", Arial, sans-serif;
+    text-transform: uppercase;
+    user-select: none;
+    height: 60px;
+    width: 60px;
+    color: var(--tile-text-color);
+}
+
+/* Keyboard */
+.keyboard{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 8px;
+    touch-action: manipulation;
+    user-select: none;
+}
+
+.keyboard .row{
+    display: flex;
+    width: 100%;
+    margin-bottom: 8px;
+    justify-content: center;
+}
+
+.keyboard button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Clear Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    height: 60px;
+    width: 43px;
+    border: 0;
+    padding: 19px 0;
+    margin: 0 6px 0 0;
+    border-radius: 4px;
+    background-color: var(--key-bg);
+    color: var(--key-text-color);
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.keyboard button.big{
+    flex-grow: 1.5;
+}
