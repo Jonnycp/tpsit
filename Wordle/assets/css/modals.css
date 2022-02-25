@@ -1,0 +1,25 @@
+.cookieContainer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--modal-content-bg);
+    border-top: 1px solid #333;
+    padding: 0 25px;
+    box-sizing: border-box;
+    font-family: "Franklin", sans-serif;
+}
+
+.cookieContainer header{
+    display: flex;
+    border: 0;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.cookieContainer header h3{
+    flex-grow: 1;
+    font-weight: 700;
+    line-height: 15px;
+    font-size: 15px;
+    border-right: 1px solid #ccc
+}
