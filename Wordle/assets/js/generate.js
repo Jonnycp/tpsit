@@ -35,15 +35,15 @@ const generateKeyboard = () => {
             let btn = document.createElement("button");
             let key = {
                 node: null,
-                code: letters[i][j].toUpperCase().charCodeAt()
+                code: letters[i][j]
             };
             if(letters[i][j] == "↵"){
                 key.node = document.createTextNode("enter")
-                key.code = "enter"
+                key.code = "Enter"
                 btn.classList.add("big");
             }else if(letters[i][j] == "←"){
                 key.node = document.createElement("img");
-                key.code = "backspace"
+                key.code = "Backspace"
                 key.node.src = "./assets/img/backspace.svg";
                 btn.classList.add("big")
             }else{
