@@ -1,0 +1,15 @@
+@keyframes Pop {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    40% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+}
+
+.tile[data-animation="pop"]{
+    animation: Pop 100ms
+}
