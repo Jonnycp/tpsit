@@ -11,6 +11,7 @@
     --color-background: #ffffff;
     --modal-content-bg: #ffffff;
     --font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+    --text-color-base: #000000;
 }
 
 .blind{
@@ -26,4 +27,5 @@
     --key-text-color: #d7dadc;
     --key-bg: #818384;
     --modal-content-bg: #121213;
+    --text-color-base: #ffffff;
 }
