@@ -33,18 +33,25 @@ const generateKeyboard = () => {
 
         for (let j = 0; j < letters[i].length; j++) {
             let btn = document.createElement("button");
-            let key;
+            let key = {
+                node: null,
+                code: letters[i][j].toUpperCase().charCodeAt()
+            };
             if(letters[i][j] == "↵"){
-                key = document.createTextNode("enter")
+                key.node = document.createTextNode("enter")
+                key.code = "enter"
                 btn.classList.add("big");
             }else if(letters[i][j] == "←"){
-                key = document.createElement("img");
-                key.src = "./assets/img/backspace.svg";
+                key.node = document.createElement("img");
+                key.code = "backspace"
+                key.node.src = "./assets/img/backspace.svg";
                 btn.classList.add("big")
             }else{
-                key = document.createTextNode(letters[i][j])
+                key.node = document.createTextNode(letters[i][j])
             }
-            btn.appendChild(key);
+
+            btn.setAttribute("data-key", key.code);
+            btn.appendChild(key.node);
             row.appendChild(btn);
         }
         
