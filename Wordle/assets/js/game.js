@@ -1,7 +1,15 @@
 import {animate} from "./animate.js";
 
 const checkWord = (word) => {
+    for(let i=0;i<word.length;i++){
+        let char = word.charAt(i);
+        changeState(i, "correct")
+    }
+}
 
+const changeState = (index, state) => {
+    let row = document.querySelectorAll(".board .row:not([data-state])")[0];
+    row.children[index].dataset.state = state
 }
 
 const row2word = (row) => {
@@ -17,10 +25,10 @@ const submit = () => {
 
     if(word.length == 5){
         if(rows.length > 1){
-            console.log()
+            checkWord(word)
             rows[0].setAttribute("data-state", "validated")
         }else{
-            console.log("qui")
+            console.log("fine gioco")
         }
     }else{
         generateErrorToast("Non abbastanza lettere")
