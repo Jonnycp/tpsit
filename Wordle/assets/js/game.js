@@ -1,32 +1,76 @@
-import {animate} from "./animate.js";
+import {animate, animateRow} from "./animate.js";
 
-const checkWord = (word) => {
+const checkWord = (word, winWord) => {
+    winWord = winWord.toUpperCase();
+    let state = [];
     for(let i=0;i<word.length;i++){
         let char = word.charAt(i);
-        changeState(i, "correct")
+        if(char == winWord.charAt(i)){
+            state[i] = "correct" 
+        }else if(winWord.includes(char)){
+            state[i] = "present" 
+        }else{
+            state[i] = "nope" 
+        }
     }
+    return state;
+}
+const getNumberState = (state, find) => {
+    let n = 0;
+    state.forEach(i => i == find ? n++ : null);
+
+    return n;
+}
+const wordExist = (word) => {
+    //TODO: Controllo
+    return true;
 }
 
-const changeState = (index, state) => {
-    let row = document.querySelectorAll(".board .row:not([data-state])")[0];
-    row.children[index].dataset.state = state
+const randomByDateSeed = (variation) => {
+    let date = new Date();
+    let seed = date.getDate()+date.getMonth()+date.getFullYear()*(variation || 1);
+    return Math.floor(Math.sin(seed++) * 10000);
+}
+
+async function getDictionary() {
+    return fetch("./assets/dict/dictionary-curated.txt")
+    .then(res => res.text())
+    .then(text => text.split("\n"))
+    .catch(e => console.error("Impossibile ricevere il dizionario", e))
+}
+
+async function generateWord() {
+    getDictionary()
+    .then(array => Math.floor(randomByDateSeed(1211)*array.length))
 }
 
 const row2word = (row) => {
     let word = "";
     [...row.children].forEach(i => word+= i.innerText);
-
+    
     return word;
 }
 
 const submit = () => {
     let rows = document.querySelectorAll(".board .row:not([data-state])");
     let word = row2word(rows[0]);
-
-    if(word.length == 5){
+    
+    if(word.length == rows[0].children.length){
         if(rows.length > 1){
-            checkWord(word)
-            rows[0].setAttribute("data-state", "validated")
+            if(wordExist(word)){
+                let winWord = "";
+                generateWord()
+                .then(word => console.log(word))
+                
+                let state = checkWord(word, winWord);
+                animateRow(rows[0], state);
+                rows[0].setAttribute("data-state", "validated")
+                if(getNumberState(state, "correct") == word.length){
+                    console.log("fine gioco")
+                }
+            }else{
+                generateErrorToast("Parola non esistente")
+            }
         }else{
             console.log("fine gioco")
         }
@@ -99,3 +143,4 @@ const handleKeyboard = () => {
 handleKeyboard();
 
 //TODO: Block TAB
+//TODO: Block into animations and endGame
