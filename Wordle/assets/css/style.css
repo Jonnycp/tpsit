@@ -69,7 +69,6 @@ header .title{
 
 .tile{
     border: 2px solid var(--border-color);
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,14 +90,17 @@ header .title{
 }
 
 .tile[data-state="correct"]{
+    border: 0;
     background-color: var(--color-correct);
 }
 
 .tile[data-state="present"]{
+    border: 0;
     background-color: var(--color-presence);
 }
 
 .tile[data-state="nope"]{
+    border: 0;
     background-color: var(--color-absent);
 }
 
