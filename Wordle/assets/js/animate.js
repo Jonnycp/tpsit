@@ -12,4 +12,4 @@ export const animateRow = (row) => {
             animate(tile, "flip-out")
         }, ms)
     })
-}
+}    }
