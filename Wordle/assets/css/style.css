@@ -81,6 +81,7 @@ header .title{
     height: 60px;
     width: 60px;
     color: var(--tile-text-color);
+    user-select: none
 }
 
 .tile[data-state="tbd"]{
