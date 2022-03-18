@@ -21,15 +21,20 @@ const getNumberState = (state, find) => {
 
     return n;
 }
-const wordExist = (word) => {
-    //TODO: Controllo
-    return true;
+const wordExist = (word, dict) => {
+    let found = false;
+    dict.forEach(i => {
+        if(i.toUpperCase() == word){
+            found = true;
+        }
+    })
+    return found;
 }
 
 const randomByDateSeed = (variation) => {
     let date = new Date();
     let seed = date.getDate()+date.getMonth()+date.getFullYear()*(variation || 1);
-    return Math.floor(Math.sin(seed++) * 10000);
+    return Math.abs(Math.sin(seed));
 }
 
 async function getDictionary() {
@@ -39,9 +44,8 @@ async function getDictionary() {
     .catch(e => console.error("Impossibile ricevere il dizionario", e))
 }
 
-async function generateWord() {
-    getDictionary()
-    .then(array => Math.floor(randomByDateSeed(1211)*array.length))
+const generateWord = (dict) => {
+    return dict[Math.floor(randomByDateSeed()*dict.length)]
 }
 
 const row2word = (row) => {
@@ -57,25 +61,26 @@ const submit = () => {
     
     if(word.length == rows[0].children.length){
         if(rows.length > 1){
-            if(wordExist(word)){
-                let winWord = "";
-                generateWord()
-                .then(word => console.log(word))
-                
-                let state = checkWord(word, winWord);
-                animateRow(rows[0], state);
-                rows[0].setAttribute("data-state", "validated")
-                if(getNumberState(state, "correct") == word.length){
-                    console.log("fine gioco")
+            getDictionary()
+            .then(dictonary => {
+                if(wordExist(word, dictonary)){
+                    let winWord = generateWord(dictonary);
+                    console.log(winWord)
+                    let state = checkWord(word, winWord);
+                    animateRow(rows[0], state);
+                    rows[0].setAttribute("data-state", "validated")
+                    if(getNumberState(state, "correct") == word.length){
+                        console.log("fine gioco")
+                    }
+                }else{
+                    generateErrorToast("Parola non esistente", animate, rows[0])
                 }
-            }else{
-                generateErrorToast("Parola non esistente")
-            }
+            })
         }else{
             console.log("fine gioco")
         }
     }else{
-        generateErrorToast("Non abbastanza lettere")
+        generateErrorToast("Non abbastanza lettere", animate, rows[0])
     }    
 }
 
