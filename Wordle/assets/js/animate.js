@@ -11,7 +11,7 @@ export const animateRow = (row, state) => {
             let tile = row.children[i];
             setTimeout(() => {
                 animateSequence(tile, ["flip-in", "flip-out", "idle"], 250, state[i])
-            }, i * 450)
+            }, i * 250)
         }
         [...row.children].forEach(tile => tile.removeAttribute("data-animation"))
     }else{
