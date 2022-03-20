@@ -8,36 +8,40 @@ const checkWord = (word, winWord) => {
         if(char == winWord.charAt(i)){
             state[i] = "correct" 
         }else if(winWord.includes(char)){
-            let correctIndex;
-            allIndexOf(char, word).indexs.forEach(index => {
-                if(state[index] == "correct"){
-                    correctIndex = index
-                }
-            })
-            if(correctIndex == undefined){
-                state[i] = "present" 
-            }else{
-                state[i] = "nope" 
-            }
+            state[i] = "present" 
         }else{
             state[i] = "nope" 
+        }
+    }
+    return refactorState(state, word);
+}
+
+const refactorState = (state, word) => {
+    for(let i=0; i<state.length; i++){
+        let char = word[i]
+        for(let j=i+1; j<state.length; j++){
+            if(char == word[j]){
+                console.log("Uguale", word[j], "in", i, j)
+                if(state[j] != "correct"){
+                    state[j] = "nope"
+                }
+                if(state[j] == "correct"){
+                    state[i] = "nope"
+                }
+            }
         }
     }
     return state;
 }
 
 const allIndexOf = (char, word) => {
-    let num, indexs=[];
+    let  indexs=[];
     [...word].forEach((c, i) => {
         if(char.toUpperCase() == c.toUpperCase()){
-            num++;
             indexs.push(i)
         }
     })
-    return {
-        indexs, 
-        length: num
-    }
+    return indexs
 }
 
 const getNumberState = (state, find) => {
@@ -91,9 +95,10 @@ const submit = () => {
                 if(wordExist(word, dictonary)){
                     let winWord = generateWord(dictonary);
                     console.log(winWord)
+                    
                     let state = checkWord(word, winWord);
-                    animateRow(rows[0], state);
-                    updateKeyboard(state, word)
+                    animateRow(rows[0], state, word, updateKeyboard);
+
                     rows[0].setAttribute("data-state", "validated")
                     if(getNumberState(state, "correct") == word.length){
                         console.log("fine gioco")
@@ -156,7 +161,7 @@ const updateKeyboard = (state, word) => {
     [...word].forEach((c, i) => {
         let btn = document.querySelector(".keyboard button[data-key="+c.toLowerCase()+"]");
         let correctIndex;
-        allIndexOf(c, word).indexs.forEach(index => {
+        allIndexOf(c, word).forEach(index => {
             if(state[index] == "correct"){
                 correctIndex = index
             }
