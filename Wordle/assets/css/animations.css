@@ -91,5 +91,5 @@
 }
 
 .row[data-animation="shake"] {
-  animation: Shake 250ms;
+  animation: Shake 600ms;
 }
