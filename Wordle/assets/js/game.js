@@ -8,13 +8,38 @@ const checkWord = (word, winWord) => {
         if(char == winWord.charAt(i)){
             state[i] = "correct" 
         }else if(winWord.includes(char)){
-            state[i] = "present" 
+            let correctIndex;
+            allIndexOf(char, word).indexs.forEach(index => {
+                if(state[index] == "correct"){
+                    correctIndex = index
+                }
+            })
+            if(correctIndex == undefined){
+                state[i] = "present" 
+            }else{
+                state[i] = "nope" 
+            }
         }else{
             state[i] = "nope" 
         }
     }
     return state;
 }
+
+const allIndexOf = (char, word) => {
+    let num, indexs=[];
+    [...word].forEach((c, i) => {
+        if(char.toUpperCase() == c.toUpperCase()){
+            num++;
+            indexs.push(i)
+        }
+    })
+    return {
+        indexs, 
+        length: num
+    }
+}
+
 const getNumberState = (state, find) => {
     let n = 0;
     state.forEach(i => i == find ? n++ : null);
@@ -68,6 +93,7 @@ const submit = () => {
                     console.log(winWord)
                     let state = checkWord(word, winWord);
                     animateRow(rows[0], state);
+                    updateKeyboard(state, word)
                     rows[0].setAttribute("data-state", "validated")
                     if(getNumberState(state, "correct") == word.length){
                         console.log("fine gioco")
@@ -124,6 +150,23 @@ const addLetter = (letter) => {
         }
         i++
     }
+}
+
+const updateKeyboard = (state, word) => {
+    [...word].forEach((c, i) => {
+        let btn = document.querySelector(".keyboard button[data-key="+c.toLowerCase()+"]");
+        let correctIndex;
+        allIndexOf(c, word).indexs.forEach(index => {
+            if(state[index] == "correct"){
+                correctIndex = index
+            }
+        })
+        if(correctIndex == undefined){
+            btn.setAttribute("data-state", state[i])
+        }else{
+            btn.setAttribute("data-state", "correct")
+        }
+    })
 }
 
 const handleKeyboard = () => {

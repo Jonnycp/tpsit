@@ -148,6 +148,20 @@ header .title{
     flex-grow: 1.5;
 }
 
+.keyboard button[data-state="correct"]{
+    color: var(--tile-text-color);
+    background-color: var(--color-correct);
+}
+
+.keyboard button[data-state="present"]{
+    color: var(--tile-text-color);
+    background-color: var(--color-presence);
+}
+
+.keyboard button[data-state="nope"]{
+    color: var(--tile-text-color);
+    background-color: var(--color-absent);
+}
 
 @media (max-width: 360px) {
     header .title {
