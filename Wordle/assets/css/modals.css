@@ -23,3 +23,25 @@
     font-size: 15px;
     border-right: 1px solid #ccc
 }
+
+.toaster{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+    z-index: 2
+}
+
+.toaster div{
+    margin-bottom: 16px;
+    background-color: var(--text-color-base);
+    color: var(--modal-content-bg);
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-family: "Clear Sans", Arial, sans-serif;
+}
