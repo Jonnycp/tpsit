@@ -24,7 +24,7 @@ const getNumberState = (state, find) => {
 const wordExist = (word, dict) => {
     let found = false;
     dict.forEach(i => {
-        if(i.toUpperCase() == word){
+        if(i.toUpperCase().trim() == word.toUpperCase()){
             found = true;
         }
     })
@@ -45,7 +45,7 @@ async function getDictionary() {
 }
 
 const generateWord = (dict) => {
-    return dict[Math.floor(randomByDateSeed()*dict.length)]
+    return dict[Math.floor(randomByDateSeed()*dict.length)].trim()
 }
 
 const row2word = (row) => {
@@ -63,7 +63,7 @@ const submit = () => {
         if(rows.length > 1){
             getDictionary()
             .then(dictonary => {
-                if(!wordExist(word, dictonary)){
+                if(wordExist(word, dictonary)){
                     let winWord = generateWord(dictonary);
                     console.log(winWord)
                     let state = checkWord(word, winWord);
