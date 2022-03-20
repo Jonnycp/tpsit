@@ -63,7 +63,7 @@ const submit = () => {
         if(rows.length > 1){
             getDictionary()
             .then(dictonary => {
-                if(wordExist(word, dictonary)){
+                if(!wordExist(word, dictonary)){
                     let winWord = generateWord(dictonary);
                     console.log(winWord)
                     let state = checkWord(word, winWord);
