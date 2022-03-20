@@ -5,7 +5,7 @@ export const animate = (tile, animation, ms) => {
     }, ms)
 }
 
-export const animateRow = (row, state) => {
+export const animateRow = (row, state, word, callback) => {
     if(state.length == row.children.length){
         for(let i=0; i<row.children.length; i++){
             let tile = row.children[i];
@@ -13,9 +13,9 @@ export const animateRow = (row, state) => {
                 animateSequence(tile, ["flip-in", "flip-out", "idle"], 250, state[i])
             }, i * 250)
         }
-        [...row.children].forEach(tile => tile.removeAttribute("data-animation"))
+        setTimeout(() => callback(state, word), (state.length+1)*250)
     }else{
-        console.error("Stato tiles non valido")
+        console.error("Stato delle tiles non valido")
     }
 }
 
