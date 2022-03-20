@@ -31,5 +31,5 @@ const generateCookieModal = (text) => {
 
 const generateErrorToast = (msg, animate, row) => {
     console.error(msg)
-    animate(row, "shake", 250)
+    animate(row, "shake", 600)
 } 
