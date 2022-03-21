@@ -21,7 +21,6 @@ const refactorState = (state, word) => {
         let char = word[i]
         for(let j=i+1; j<state.length; j++){
             if(char == word[j]){
-                console.log("Uguale", word[j], "in", i, j)
                 if(state[j] != "correct"){
                     state[j] = "nope"
                 }
@@ -89,7 +88,6 @@ const submit = () => {
     let word = row2word(rows[0]);
     
     if(word.length == rows[0].children.length){
-        if(rows.length > 1){
             getDictionary()
             .then(dictonary => {
                 if(wordExist(word, dictonary)){
@@ -101,15 +99,14 @@ const submit = () => {
 
                     rows[0].setAttribute("data-state", "validated")
                     if(getNumberState(state, "correct") == word.length){
-                        console.log("fine gioco")
+                        console.log("fine gioco WIN")
+                    }else if(rows.length == 1){
+                        console.log("fine gioco LOSE")
                     }
                 }else{
                     generateErrorToast("Parola non esistente", animate, rows[0])
                 }
             })
-        }else{
-            console.log("fine gioco")
-        }
     }else{
         generateErrorToast("Non abbastanza lettere", animate, rows[0])
     }    
