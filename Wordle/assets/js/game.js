@@ -13,19 +13,21 @@ const checkWord = (word, winWord) => {
             state[i] = "nope" 
         }
     }
-    return refactorState(state, word);
+    return refactorState(state, word, winWord);
 }
 
-const refactorState = (state, word) => {
+const refactorState = (state, word, winWord) => {
     for(let i=0; i<state.length; i++){
         let char = word[i]
         for(let j=i+1; j<state.length; j++){
             if(char == word[j]){
-                if(state[j] != "correct"){
-                    state[j] = "nope"
-                }
-                if(state[j] == "correct"){
-                    state[i] = "nope"
+                if(winWord[i] != winWord[j]){
+                    if(state[j] != "correct"){
+                        state[j] = "nope"
+                    }
+                    if(state[j] == "correct"){
+                        state[i] = "nope"
+                    }
                 }
             }
         }
