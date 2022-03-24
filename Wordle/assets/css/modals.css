@@ -116,6 +116,7 @@
 
 .overlay .modal .content footer{
     display: flex;
+    padding-bottom: 16px
 }
 
 .overlay .modal .content footer h3{
@@ -159,6 +160,7 @@
     padding: 5% 10%;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .overlay .modal .content footer .shareBtn img{

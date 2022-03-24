@@ -21,6 +21,7 @@ header div button{
     border: 0;
     padding: 0 4px;
     cursor: pointer;
+    outline: none;
 }
 
 header div{

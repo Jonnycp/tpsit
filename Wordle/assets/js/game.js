@@ -141,12 +141,12 @@ const endGame = (win, winWord) => {
     saveGame(win)
     if(win){
         let rows = document.querySelectorAll(".board .row[data-state]");
-        let congrates = ["Genio", "Magnifico", "Impressionante", "Splendido", "Ottimo", "Fiù! Per poco"];
+        let congrates = ["Genio", "Magnifico", "Impressionante", "Splendido", "Ottimo", "Fiù!"];
         generateErrorToast(congrates[rows.length-1].toUpperCase())
     }else{
         generateErrorToast(winWord.toUpperCase())
     }
-    setTimeout(endGameModal, 1000)
+    setTimeout(() => endGameModal(true), 1000)
 }
 
 const saveGame = (win) => {
