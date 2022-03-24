@@ -33,10 +33,120 @@ const generateErrorToast = (msg, animate, row) => {
     let toast = document.createElement("div");
     toast.appendChild(document.createTextNode(msg))
     
-    animate(row, "shake", 600)
+    animate != undefined ? animate(row, "shake", 600) : null
     let toaster = document.querySelector(".toaster")
     toaster.appendChild(toast);
     setTimeout(() => {
         toaster.removeChild(toast);
     }, 1000)
 } 
+
+//TODO: Aggiungere possibilità di toast fisso quando a fine gioco non si indovina
+//TODO: Generare Complimento in base a dove ha indovinato (da mostrare nel toast)
+const endGameModal = () => {
+    let overlay = document.createElement("div");
+    overlay.classList.add("overlay")
+
+    let modal = document.createElement("div");
+    modal.classList.add("modal")
+
+    let closeBtnContainer = document.createElement("div")
+    closeBtnContainer.classList.add("closeBtn")
+    let closeBtn = document.createElement("img");
+    closeBtn.src = "./assets/img/close.svg";
+    closeBtnContainer.appendChild(closeBtn);
+    modal.appendChild(closeBtnContainer)
+
+    let content = document.createElement("div");
+    content.classList.add("content");
+    modal.appendChild(content);
+
+    let title = document.createElement("h3");
+    title.appendChild(document.createTextNode("Statistiche"))
+    content.appendChild(title);
+
+    let stats = document.createElement("div");
+    stats.classList.add("stats");
+
+    let statistics = [
+        {
+            label: "Giocate",
+            value: localStorage.getItem("played")
+        },
+        {
+            label: "Vittorie %",
+            value: Math.trunc((parseInt(localStorage.getItem("wins"))/parseInt(localStorage.getItem("played")))*100)
+        },
+        {
+            label: "Streak",
+            value: localStorage.getItem("streak")
+        },
+        {
+            label: "Max Streak",
+            value: localStorage.getItem("max-streak")
+        },
+    ]
+    statistics.forEach(stat => {
+        let container = document.createElement("div");
+        container.classList.add("stat-container")
+
+        let value = document.createElement("h4")
+        value.appendChild(document.createTextNode(stat.value))
+        container.appendChild(value);
+
+        let label = document.createElement("h5")
+        label.appendChild(document.createTextNode(stat.label))
+        container.appendChild(label);
+
+        stats.appendChild(container)
+    });
+    content.appendChild(stats);
+
+    let footer = document.createElement("footer");
+    let countdown = document.createElement("div");
+    countdown.classList.add("countdown");
+
+    let nextWordle = document.createElement("h3");
+    nextWordle.appendChild(document.createTextNode("PROSSIMO WORDLE"));
+    countdown.appendChild(nextWordle);
+
+    let timer = document.createElement("span");
+    timer.appendChild(document.createTextNode(nextWordleDate()))
+    setInterval(() => {
+        timer.innerText = nextWordleDate()
+        }, 1000)
+    
+    countdown.appendChild(timer);
+    footer.appendChild(countdown);
+
+    let btnShareContainer = document.createElement("div");
+    btnShareContainer.classList.add("shareBtn");
+
+    let btnShare = document.createElement("button");
+    btnShare.appendChild(document.createTextNode("CONDIVIDI"))
+    let shareIcon = document.createElement("img");
+    shareIcon.src = "./assets/img/share.svg"
+    btnShare.appendChild(shareIcon)
+    btnShareContainer.appendChild(btnShare)
+    footer.appendChild(btnShareContainer);
+    
+    content.appendChild(footer);
+
+    overlay.appendChild(modal)
+    document.body.appendChild(overlay)
+}
+
+const nextWordleDate = () => {
+    let now = new Date();
+    let tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate()+1);
+    tomorrow.setHours(0,0,0,0)
+
+    let left = tomorrow - now;
+    let leftDate = {
+        hours: Math.floor((left % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        mins: Math.floor((left % (1000 * 60 * 60)) / (1000 * 60)),
+        secs: Math.floor((left % (1000 * 60)) / 1000)
+    }
+    return `${leftDate.hours < 10 ? "0" : ""}${leftDate.hours} : ${leftDate.mins < 10 ? "0" : ""}${leftDate.mins} : ${leftDate.secs < 10 ? "0" : ""}${leftDate.secs}`
+}
