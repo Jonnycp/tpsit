@@ -102,13 +102,12 @@ const submit = () => {
                     if(getNumberState(state, "correct") == word.length){
                         end = true;
                         win = true;
-                        console.log("fine gioco WIN")
                     }else if(rows.length == 1){
                         end = true;
-                        console.log("fine gioco LOSE")
                     }
-                    if(!end){
-                        //La parola del giorno è ...
+
+                    //Console.log() parola vincente
+                    if(!end && rows.length == 6){
                         console.groupCollapsed(`%cTi piace vincere facile?`, "color: red; font-size: 25px");
                         console.groupCollapsed(`%cHo pensato anche alle persone come te 😅`, "color: green; font-size: 20px");
                             console.groupCollapsed(`%cPerò prova a giocare... è semplice`, "color: blue; font-size: 18px");
@@ -126,9 +125,9 @@ const submit = () => {
                         console.groupEnd();
                     }
                     
-                    
                     disableKeyboard()
-                    animateRowState(rows[0], state, word, end, win, updateKeyboard, handleKeyboard);
+                    //TODO: Si può ottimizzare con una promise
+                    animateRowState(rows[0], state, word, end, win, updateKeyboard, handleKeyboard, endGame, winWord);
                 }else{
                     generateErrorToast("Parola non esistente", animate, rows[0])
                 }
@@ -136,6 +135,37 @@ const submit = () => {
     }else{
         generateErrorToast("Non abbastanza lettere", animate, rows[0])
     }    
+}
+
+const endGame = (win, winWord) => {
+    saveGame(win)
+    if(win){
+        let rows = document.querySelectorAll(".board .row[data-state]");
+        let congrates = ["Genio", "Magnifico", "Impressionante", "Splendido", "Ottimo", "Fiù! Per poco"];
+        generateErrorToast(congrates[rows.length-1].toUpperCase())
+    }else{
+        generateErrorToast(winWord.toUpperCase())
+    }
+    setTimeout(endGameModal, 1000)
+}
+
+const saveGame = (win) => {
+    let played = parseInt(localStorage.getItem("played") || 0);
+    let wins = parseInt(localStorage.getItem("wins") || 0);
+    let streak = parseInt(localStorage.getItem("streak") || 0);
+    let maxstreak = parseInt(localStorage.getItem("max-streak") || 0);
+
+    localStorage.setItem("played", played+1);
+    if(win){
+        localStorage.setItem("wins", wins+1);
+        localStorage.setItem("streak", streak+1);
+    }else{
+        localStorage.setItem("streak", 0);
+    }
+
+    if(localStorage.getItem("streak") > maxstreak){
+        localStorage.setItem("max-streak", localStorage.getItem("streak"));
+    }
 }
 
 const backspace = () => {
