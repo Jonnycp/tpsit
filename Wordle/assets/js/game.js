@@ -1,4 +1,4 @@
-import {animate, animateRow} from "./animate.js";
+import {animate, animateRowState} from "./animate.js";
 
 const checkWord = (word, winWord) => {
     winWord = winWord.toUpperCase();
@@ -93,21 +93,42 @@ const submit = () => {
             .then(dictonary => {
                 if(wordExist(word, dictonary)){
                     let winWord = generateWord(dictonary);
-                    console.log(winWord)
+
                     
                     let state = checkWord(word, winWord);
-                    disableKeyboard()
-                    animateRow(rows[0], state, word, updateKeyboard, handleKeyboard);
                     
+                    let end = false, win = false;
                     rows[0].setAttribute("data-state", "validated")
                     if(getNumberState(state, "correct") == word.length){
+                        end = true;
+                        win = true;
                         console.log("fine gioco WIN")
-                        console.log(rows)
-                        disableKeyboard()
                     }else if(rows.length == 1){
-                        disableKeyboard()
+                        end = true;
                         console.log("fine gioco LOSE")
                     }
+                    if(!end){
+                        //La parola del giorno è ...
+                        console.groupCollapsed(`%cTi piace vincere facile?`, "color: red; font-size: 25px");
+                        console.groupCollapsed(`%cHo pensato anche alle persone come te 😅`, "color: green; font-size: 20px");
+                            console.groupCollapsed(`%cPerò prova a giocare... è semplice`, "color: blue; font-size: 18px");
+                                console.groupCollapsed(`%cDevi solo indovinare una parola italiana di 5 lettere`, "color: blueviolet; font-size: 16px");
+                                    console.groupCollapsed(`%cNon si perde niente, si vince conoscenza di nuove parole`, "color: chocolate; font-size: 15px");
+                                        console.groupCollapsed(`%cVa bene, hai vinto tu...`, "color: darkorange; font-size: 14px");
+                                            console.groupCollapsed(`%cLa parola è`, "color: darkturquoise; font-size: 12px");
+                                                console.log(btoa(encodeURIComponent(winWord)))
+                                            console.groupEnd();
+                                        console.groupEnd();
+                                    console.groupEnd();
+                                console.groupEnd();
+                            console.groupEnd();
+                        console.groupEnd();
+                        console.groupEnd();
+                    }
+                    
+                    
+                    disableKeyboard()
+                    animateRowState(rows[0], state, word, end, win, updateKeyboard, handleKeyboard);
                 }else{
                     generateErrorToast("Parola non esistente", animate, rows[0])
                 }
@@ -200,7 +221,6 @@ const handleKeyboard = () => {
 }
 
 const disableKeyboard = () => {
-    console.log("disabled")
     //FronEnd Keyboard
     let keyboardBtns = document.querySelectorAll(".keyboard .row button");
     keyboardBtns.forEach(i => {
