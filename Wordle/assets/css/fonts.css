@@ -12,6 +12,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Clear Sans';
+  src: url('../fonts/ClearSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
  @font-face {
   font-family: 'Franklin';
   src: url('../fonts/franklin-normal-500.woff') format('woff');
