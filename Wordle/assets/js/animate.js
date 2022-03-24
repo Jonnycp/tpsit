@@ -1,3 +1,5 @@
+//TODO: Forse è meglio togliere l'export e fare l'importazione dopo il caricamento di game.js
+
 export const animate = (tile, animation, ms) => {
     tile.setAttribute("data-animation", animation)
     setTimeout(() => {
@@ -5,7 +7,7 @@ export const animate = (tile, animation, ms) => {
     }, ms)
 }
 
-export const animateRowState = (row, state, word, end, win, updateKeyboard, handleKeyboard) => {
+export const animateRowState = (row, state, word, end, win, updateKeyboard, handleKeyboard, endGame, winWord) => {
     if(state.length == row.children.length){
         for(let i=0; i<row.children.length; i++){
             let tile = row.children[i];
@@ -18,8 +20,10 @@ export const animateRowState = (row, state, word, end, win, updateKeyboard, hand
             if(!end){
                 handleKeyboard()
             }
-            if(win){
-                animateRowWin(row)
+            if(win && end){
+                animateRowWin(row, win, endGame, winWord)
+            }else if(end && !win){
+                endGame(win, winWord)
             }
         }, (state.length+1)*250)
     }else{
@@ -27,7 +31,7 @@ export const animateRowState = (row, state, word, end, win, updateKeyboard, hand
     }
 }
 
-export const animateRowWin = (row, ms) => {
+const animateRowWin = (row, win, endGame, winWord) => {
     for(let i=0; i<row.children.length; i++){
         let tile = row.children[i];
         setTimeout(() => {
@@ -35,8 +39,8 @@ export const animateRowWin = (row, ms) => {
         }, i * 100)
     }
     setTimeout(() => {
-        console.log("FINE")
-    }, row.children.length*100)
+        endGame(win, winWord)
+    }, row.children.length*250)
 }
 
 export const animateSequence = (tile, animations, ms, state) => {
