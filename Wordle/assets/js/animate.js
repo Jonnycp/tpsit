@@ -5,7 +5,7 @@ export const animate = (tile, animation, ms) => {
     }, ms)
 }
 
-export const animateRow = (row, state, word, callback) => {
+export const animateRow = (row, state, word, callback, handleKeyboard) => {
     if(state.length == row.children.length){
         for(let i=0; i<row.children.length; i++){
             let tile = row.children[i];
@@ -13,7 +13,10 @@ export const animateRow = (row, state, word, callback) => {
                 animateSequence(tile, ["flip-in", "flip-out", "idle"], 250, state[i])
             }, i * 250)
         }
-        setTimeout(() => callback(state, word), (state.length+1)*250)
+        setTimeout(() => {
+            callback(state, word)
+            handleKeyboard()
+        }, (state.length+1)*250)
     }else{
         console.error("Stato delle tiles non valido")
     }

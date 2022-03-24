@@ -88,7 +88,6 @@ const row2word = (row) => {
 const submit = () => {
     let rows = document.querySelectorAll(".board .row:not([data-state])");
     let word = row2word(rows[0]);
-    
     if(word.length == rows[0].children.length){
             getDictionary()
             .then(dictonary => {
@@ -97,12 +96,16 @@ const submit = () => {
                     console.log(winWord)
                     
                     let state = checkWord(word, winWord);
-                    animateRow(rows[0], state, word, updateKeyboard);
-
+                    disableKeyboard()
+                    animateRow(rows[0], state, word, updateKeyboard, handleKeyboard);
+                    
                     rows[0].setAttribute("data-state", "validated")
                     if(getNumberState(state, "correct") == word.length){
                         console.log("fine gioco WIN")
+                        console.log(rows)
+                        disableKeyboard()
                     }else if(rows.length == 1){
+                        disableKeyboard()
                         console.log("fine gioco LOSE")
                     }
                 }else{
@@ -173,26 +176,43 @@ const updateKeyboard = (state, word) => {
     })
 }
 
+//Can't use anonymous function, it must be passed to removeEventListener
+const frontEndKeyBoard = (e) => {
+    let k = e.currentTarget.dataset.key;
+    k = k == "enter" ? 13 : k == "backspace" ? 8 : k;
+    handleWrite(k)
+}
+const physicalKeyboard = (e) => {
+    if(!e.repeat){
+        handleWrite(e.key)
+    }
+}
+
 const handleKeyboard = () => {
     //FrontEnd Keyboard
     let keyboardBtns = document.querySelectorAll(".keyboard .row button");
     keyboardBtns.forEach(i => {
-        i.addEventListener("click", (e) => {
-            let k = e.currentTarget.dataset.key;
-            k = k == "enter" ? 13 : k == "backspace" ? 8 : k;
-            handleWrite(k)
-        })
+        i.addEventListener("click", frontEndKeyBoard)
     })
 
     //Physical Keyboard (Prevent holding key)
-    document.body.addEventListener("keydown", (e) => {
-        if(!e.repeat){
-            handleWrite(e.key)
-        }
-    });
+    document.body.addEventListener("keydown", physicalKeyboard);
+}
+
+const disableKeyboard = () => {
+    console.log("disabled")
+    //FronEnd Keyboard
+    let keyboardBtns = document.querySelectorAll(".keyboard .row button");
+    keyboardBtns.forEach(i => {
+        i.removeEventListener("click", frontEndKeyBoard)
+    })
+
+    //Physical Keyboard
+    document.body.removeEventListener("keydown", physicalKeyboard)
 }
 
 handleKeyboard();
+
 
 //TODO: Block TAB
 //TODO: Block into animations and endGame
