@@ -118,3 +118,36 @@
 .tile[data-animation="bounce"] {
   animation: Bounce 1000ms;
 }
+
+@keyframes SlideIn {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.modal[data-animation="slide-in"]{
+  animation: SlideIn 200ms;
+}
+
+@keyframes SlideOut {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+}
+
+.modal[data-animation="slide-out"]{
+  animation: SlideOut 200ms;
+}
