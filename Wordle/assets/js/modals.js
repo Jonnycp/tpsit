@@ -29,16 +29,18 @@ const generateCookieModal = (text) => {
 
 //document.body.appendChild(generateCookieModal("Questo sito utilizza i cookie e simili per riconoscere i visitatori e ricordare le loro preferenze. Per capire di più riguardo questi metodi, incluso come disabilitarli, cerca su google e informati. Questo è un banner obbligatorio dalle legge europee, ma nessuno lo leggerà tutto.\n Cliccando 'Accetta' acconsenti a trattamento dei tuoi dati con i metodi descritti sopra. Stai praticamente acconsentendo a qualsiasi trattamento commerciale dei tuoi dati sul mercato nero. Questo banner contiene informazioni false, però se l'hai letto tutto complimenti."));
 
-const generateErrorToast = (msg, animate, row) => {
+const generateErrorToast = (msg, disappear, animate, row) => {
     let toast = document.createElement("div");
     toast.appendChild(document.createTextNode(msg))
     
     animate != undefined ? animate(row, "shake", 600) : null
     let toaster = document.querySelector(".toaster")
     toaster.appendChild(toast);
-    setTimeout(() => {
-        toaster.removeChild(toast);
-    }, 1000)
+    if(disappear){
+        setTimeout(() => {
+            toaster.removeChild(toast);
+        }, 1000)
+    }
 } 
 
 //TODO: Aggiungere possibilità di toast fisso quando a fine gioco non si indovina
@@ -218,7 +220,7 @@ const handleEndModal = () => {
             .catch((error) => console.errore('Impossibile condividere', error));
 
             navigator.clipboard.writeText(message);
-            generateErrorToast("Copiato negli appunti")
+            generateErrorToast("Copiato negli appunti", true)
         })
     }
 }
@@ -229,7 +231,26 @@ const handleHeaderButton = () => {
         button.addEventListener("click", (e) => {
             switch(e.currentTarget.dataset.action){
                 case "stats": 
-                    endGameModal(false)
+                    let isEnd = false;
+                    let rows = document.querySelectorAll(".board .row[data-state=validated]");
+                    let row = rows[rows.length-1];
+                    if(row){
+                        if(rows.length == 6){
+                            isEnd = true;
+                        }else{
+                            let correct = [];
+                            [...row.children].forEach(tile => {
+                                if(tile.dataset.state == "correct"){
+                                    correct.push(tile)
+                                }
+                            })
+                            if(correct.length == row.children.length){
+                                isEnd = true;
+                            }
+                        }
+                    }
+                   
+                    endGameModal(isEnd)
                     break;
             }
         })
