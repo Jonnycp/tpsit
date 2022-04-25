@@ -150,4 +150,5 @@
 
 .modal[data-animation="slide-out"]{
   animation: SlideOut 200ms;
+  animation-fill-mode: forwards;
 }
