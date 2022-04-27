@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "name" : "Livello 1",
+        "content" : "Frutta",
+        "difficulty": "easy",
+        "cards": 10,
+        "winInto": {
+            "time": "10 sec",
+            "moves": "4 mosse"
+        }
+    }
+]
