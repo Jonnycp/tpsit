@@ -1,0 +1,26 @@
+/*
+#############################
+#       MEMORY GAME         #
+#     ©Jonathan Caputo      #
+#############################
+*/
+
+:root{
+    /* Colors */
+    --primary: #08464C;
+    --secondary: #FEAA2B;
+    --background: #E6FAFF;
+    --lightBackground: #D6F0F7;
+    --light: #FFF;
+    --dark: #000;
+    --success: #5EA83F;
+    --gray: #828282;
+    --darkGray: #575757;
+    --lightGray: #CACACA;
+    --warning: #FFB400;
+
+    /* Fonts */
+    --titleFont: "Delninoys", "sans-serif";
+    --normalFont: 'Poppins', sans-serif;
+
+}
