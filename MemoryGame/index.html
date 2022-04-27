@@ -1,0 +1,67 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Game</title>
+    <meta name="title" content="Memory Game - Allena la mente">
+    <meta name="description" content="Completa i livelli e allenati a memorizzare la posizione delle immagini.">
+    <meta name="author" content="Jonathan Caputo">
+
+    <meta property="og:title" content="Memory Game - Allena la mente">
+    <meta property="og:url" content="https://jonnycp.github.io/tpsit/MemoryGame">
+    <meta property="og:description" content="Completa i livelli e allenati a memorizzare la posizione delle immagini.">
+    <meta property="og:image" content="./assets/img/Banner.png">
+    <meta property="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#6aaa64">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="canonical" href="https://jonnycp.github.io/tpsit/MemoryGame/index.html">
+    <meta name="apple-mobile-web-app-title" content="MemoryGame">
+    <meta name="application-name" content="MemoryGame">
+
+    <link href="./assets/img/favicon-32.png" rel="icon shortcut" sizes="3232">
+    <link href="./assets/img/favicon-192.png" rel="apple-touch-icon">
+    <!-- startUp animation -->
+
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/variabiles.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+</head>
+<body>
+    <div class="mainContainer">
+        <header>
+            <div class="title">
+                <h1>
+                    <img src="./assets/img/logo.png" alt="Logo Memory Game"/>
+                    Memory game
+                </h1>
+                <button>Login</button>
+            </div>
+            <div class="info">
+                <div class="progressBar">
+                    <div class="progressBarContainer">
+                        <div style="width:0%"></div>
+                      </div>
+                    <strong>0%</strong>
+                </div>
+                <button>
+                    <img src="./assets/img/icons/settings.svg" alt="Impostazioni"/>
+                </button>
+            </div>
+        </header>
+    
+        <section class="levels">
+            <!-- Code injected by javascript -->
+        </section>
+    </div>
+    
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./assets/js/generateLevels.js"></script>
+</body>
+</html>
