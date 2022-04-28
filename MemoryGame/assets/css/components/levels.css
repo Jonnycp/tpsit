@@ -127,20 +127,3 @@
     color: var(--primary);
     display: inline;
 }
-
-.levels .levelsContainer .level .stars{
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    border: 1px solid var(--gray);
-    border-radius: 15px;
-    padding: 5px 0;
-}
-
-.levels .levelsContainer .level .stars img{
-    width: 15%;
-}
-
-.levels .levelsContainer .level .stars img:nth-child(2){
-    width: 20%;
-}
