@@ -48,6 +48,7 @@ header .info{
     display: flex;
     width: 100%;
     margin: 10px 0 14px 0;
+    align-items: center;
 }
 
 header .info .progressBar{
@@ -83,4 +84,23 @@ header .info .progressBarContainer div{
 header .info button{
     border: 0;
     background: rgba(0,0,0,0);
+}
+
+header .info h2{
+    font-family: var(--normalFont);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: var(--light);
+    padding: 10px;
+    background: var(--secondary);
+    border-radius: 20px;
+}
+
+header .info div{
+    flex: .9;
+    display: flex;
+    justify-content: center;
 }
