@@ -4,6 +4,21 @@ const generateLevelsPage = () => {
     h2.appendChild(document.createTextNode("Seleziona livello"))
     container.appendChild(h2)
     
+    getLevels().
+    then(levels => {
+        levels.forEach(level => {
+            container.appendChild(generateLevelsContainer(level))
+        })
+    })
+    return container
+}
+
+const generateLevelsContainer = (levels) => {
+    if(!levels){
+        console.error("Nessun livello trovato");
+        return;
+    }
+    
     let levelsContainer = document.createElement("section")
     levelsContainer.classList.add("levelsContainer")
 
@@ -12,47 +27,48 @@ const generateLevelsPage = () => {
     levelDescription.classList.add("info")
 
     let difficulty = document.createElement("h3")
-    difficulty.appendChild(document.createTextNode("Facile"))
+    difficulty.appendChild(document.createTextNode(levels.name))
     levelDescription.appendChild(difficulty)
 
     let description = document.createElement("h4")
-    description.appendChild(document.createTextNode("Meglio iniziare da qui!"))
+    description.appendChild(document.createTextNode(levels.description))
     levelDescription.appendChild(description)
     levelsContainer.appendChild(levelDescription)
 
-    let levels = document.createElement("div");
-    levels.classList.add("slider")
-    levels.appendChild(generateSingleLevel("Livello 1", "Frutta", {time: "10 sec", cards: "4 mosse"}, 2, true))
-    levels.appendChild(generateSingleLevel("Livello 1", "Frutta", {time: "10 sec", cards: "4 mosse"}, 2, true))
-    levels.appendChild(generateSingleLevel("Livello 1", "Frutta", {time: "10 sec", cards: "4 mosse"}, 2, true))
-    levelsContainer.appendChild(levels);
+    let sliderLevels = document.createElement("div");
+    sliderLevels.classList.add("slider");
 
-    container.appendChild(levelsContainer);
-
-    return container
+    levels.levels.forEach(level => {
+        sliderLevels.appendChild(generateSingleLevel(level, {completated: false, stars: 0}))
+    })
+    
+    levelsContainer.appendChild(sliderLevels);
+    
+    return levelsContainer;
 }
 
-const generateSingleLevel = (name, type, detail, stars, completated) => {
-    let level = document.createElement("a");
-    level.classList.add("level")
-    if(completated) level.classList.add("completated")
+const generateSingleLevel = (level, userData) => {
+    let levelA = document.createElement("a");
+    levelA.classList.add("level")
+    levelA.href = "./game.html?level=" + level.id;
+    if(userData.completated) levelA.classList.add("completated")
 
     let h3 = document.createElement("h3");
-    h3.appendChild(document.createTextNode(name))
-    level.appendChild(h3)
+    h3.appendChild(document.createTextNode(level.name))
+    levelA.appendChild(h3)
 
     let h4 = document.createElement("h4");
-    h4.appendChild(document.createTextNode(type))
-    level.appendChild(h4)
+    h4.appendChild(document.createTextNode(level.content))
+    levelA.appendChild(h4)
 
     let details = document.createElement("div");
     details.classList.add("details");
-    details.appendChild(generateDetail("../assets/img/icons/time.svg", detail.time))
-    details.appendChild(generateDetail("../assets/img/icons/cards.svg", detail.cards))
-    level.appendChild(details)
+    details.appendChild(generateDetail("./assets/img/icons/time.svg", level.winInto.time))
+    details.appendChild(generateDetail("./assets/img/icons/cards.svg", level.winInto.moves))
+    levelA.appendChild(details)
 
-    level.appendChild(generateStars(stars))
-    return level;
+    levelA.appendChild(generateStars(!userData.completated ? 0 : userData.stars))
+    return levelA;
 }
 
 const generateDetail = (src, text) => {

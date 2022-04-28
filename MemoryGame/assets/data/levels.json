@@ -1,13 +1,119 @@
 [
     {
-        "id": 1,
-        "name" : "Livello 1",
-        "content" : "Frutta",
-        "difficulty": "easy",
-        "cards": 10,
-        "winInto": {
-            "time": "10 sec",
-            "moves": "4 mosse"
-        }
+        "name": "Facile",
+        "description": "Meglio iniziare da qui!",
+        "levels": [
+            {
+                "id": 1,
+                "name" : "Livello 1",
+                "content" : "Frutta",
+                "cards": 10,
+                "winInto": {
+                    "time": "10 sec",
+                    "moves": "4 mosse"
+                },
+                "difficulty": "Facile"
+            },
+            {
+                "id": 2,
+                "name" : "Livello 2",
+                "content" : "Frutta",
+                "cards": 10,
+                "winInto": {
+                    "time": "10 sec",
+                    "moves": "4 mosse"
+                },
+                "difficulty": "Facile"
+            },
+            {
+                "id": 3,
+                "name" : "Livello 3",
+                "content" : "Frutta",
+                "cards": 10,
+                "winInto": {
+                    "time": "10 sec",
+                    "moves": "4 mosse"
+                },
+                "difficulty": "Facile"
+            }
+        ]
+    },
+    {
+        "name": "Medio",
+        "description": "Qui si inizia a fare sul serio",
+        "levels": [
+            {
+                "id": 4,
+                "name" : "Livello 1",
+                "content" : "Frutta",
+                "cards": 10,
+                "winInto": {
+                    "time": "10 sec",
+                    "moves": "4 mosse"
+                },
+                "difficulty": "Medio"
+            },
+            {
+                "id": 5,
+                "name" : "Livello 2",
+                "content" : "Frutta",
+                "cards": 10,
+                "winInto": {
+                    "time": "10 sec",
+                    "moves": "4 mosse"
+                },
+                "difficulty": "Medio"
+            },
+            {
+                "id": 6,
+                "name" : "Livello 3",
+                "content" : "Frutta",
+                "cards": 10,
+                "winInto": {
+                    "time": "10 sec",
+                    "moves": "4 mosse"
+                },
+                "difficulty": "Medio"
+            }
+        ]
+    },
+    {
+        "name": "Difficile",
+        "description": "Quasi impossibile!",
+        "levels": [
+            {
+                "id": 7,
+                "name" : "Livello 1",
+                "content" : "Frutta",
+                "cards": 10,
+                "winInto": {
+                    "time": "10 sec",
+                    "moves": "4 mosse"
+                },
+                "difficulty": "Difficile"
+            },
+            {
+                "id": 8,
+                "name" : "Livello 2",
+                "content" : "Frutta",
+                "cards": 10,
+                "winInto": {
+                    "time": "10 sec",
+                    "moves": "4 mosse"
+                },
+                "difficulty": "Difficile"
+            },
+            {
+                "id": 9,
+                "name" : "Livello 3",
+                "content" : "Frutta",
+                "cards": 10,
+                "winInto": {
+                    "time": "10 sec",
+                    "moves": "4 mosse"
+                },
+                "difficulty": "Difficile"
+            }
+        ]
     }
 ]
