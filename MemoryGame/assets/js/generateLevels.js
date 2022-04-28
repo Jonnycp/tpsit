@@ -82,19 +82,5 @@ const generateDetail = (src, text) => {
     return icon;
 }
 
-const generateStars = (num) => {
-    let stars = document.createElement("div");
-    stars.classList.add("stars");
-
-    for (let i = 0; i < 3; i++) {
-        let img = document.createElement("img");
-        img.src = "./assets/img/icons/empty_star.svg";
-        if(i == 0 && num == 1) img.src = "./assets/img/icons/filled_star.png";
-        if(i != 1 && num == 2) img.src = "./assets/img/icons/filled_star.png";
-        if(num == 3) img.src = "./assets/img/icons/filled_star.png";
-        stars.appendChild(img);
-    }
-    return stars;
-}
 
 document.querySelector(".levels").appendChild(generateLevelsPage());
