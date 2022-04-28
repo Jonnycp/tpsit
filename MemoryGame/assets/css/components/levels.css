@@ -1,0 +1,146 @@
+.levels{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.levels h2{
+    font-family: var(--normalFont);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.levels .levelsContainer{
+    display: flex;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.levels .levelsContainer .info {
+    width: 50%;
+    margin-right: 35px;
+    margin-top: 10px;
+}
+
+.levels .levelsContainer .info h3{
+    font-family: var(--normalFont);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: var(--primary);
+}
+
+.levels .levelsContainer .info h4{
+    font-family: var(--normalFont);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.01em;
+    color: var(--gray);
+}
+
+.levels .levelsContainer .slider{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.levels .levelsContainer .level{
+    background: var(--light);
+    border-radius: 15px;
+    padding: 15px 10px 5px 10px;
+    font-family: var(--normalFont);
+    font-style: normal;
+    display: inline-block;
+    box-shadow: 0px 4px 4px #D5F2F5;
+    position: relative;
+    margin-right: 15px;
+    flex: 0 0 auto;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.levels .levelsContainer .level.completated{
+    border: 2px solid var(--success);
+}
+
+.levels .levelsContainer .level.completated::before{
+    content: url("../img/icons/tick.svg");
+    position: absolute;
+    top: -8px;
+    left: 35%;
+    background: var(--success);
+    padding: 0 10px;
+    border-radius: 6px;
+}
+
+.levels .levelsContainer .level h3{
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.levels .levelsContainer .level h4{
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: var(--darkGray);
+    margin-bottom: 10px;
+}
+
+.levels .levelsContainer .level .details{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.levels .levelsContainer .level .details div{
+    display: flex;
+    align-items: center;
+}
+
+.levels .levelsContainer .level .details h5{
+    font-size: 7px;
+    font-weight: 500;
+    line-height: 10px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: var(--primary);
+    display: inline;
+}
+
+.levels .levelsContainer .level .stars{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 1px solid var(--gray);
+    border-radius: 15px;
+    padding: 5px 0;
+}
+
+.levels .levelsContainer .level .stars img{
+    width: 15%;
+}
+
+.levels .levelsContainer .level .stars img:nth-child(2){
+    width: 20%;
+}
