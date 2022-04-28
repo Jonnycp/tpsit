@@ -1,0 +1,31 @@
+[
+    {
+        "type": "fruit",
+        "cards": [
+            {
+                "name" : "Mela",
+                "image" : "./assets/img/cards/fruit/apple.png"
+            },
+            {
+                "name" : "Banana",
+                "image" : "./assets/img/cards/fruit/banana.png"
+            },
+            {
+                "name" : "Uva",
+                "image" : "./assets/img/cards/fruit/grapes.png"
+            },
+            {
+                "name" : "Ananas",
+                "image" : "./assets/img/cards/fruit/pineapple.png"
+            },
+            {
+                "name" : "Fragola",
+                "image" : "./assets/img/cards/fruit/strawberry.png"
+            },
+            {
+                "name" : "Limone",
+                "image" : "./assets/img/cards/fruit/lemon.png"
+            }
+        ]
+    }
+]
