@@ -99,7 +99,7 @@ header .info h2{
     border-radius: 20px;
 }
 
-header .info div{
+header .info .levelName{
     flex: .9;
     display: flex;
     justify-content: center;
