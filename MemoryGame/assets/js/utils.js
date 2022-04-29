@@ -46,3 +46,28 @@ const generateStars = (num, noBorder) => {
     }
     return stars;
 }
+
+const string2seconds = (s) => {
+    parts = s.split(":");
+    
+    return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+}
+
+const seconds2string = (sec) => {
+    return Math.floor(sec / 60) + ":" + (sec % 60 < 10 ? "0" : "") + sec % 60;
+}
+
+const seconds2stringExtended = (sec) => {
+    return Math.floor(sec / 60) > 0 ? Math.floor(sec / 60) + " min" : "" + (sec % 60 < 10 ? "0" : "") + sec % 60 + " sec";
+}
+
+const generateDetail = (src, text) => {
+    let icon = document.createElement("div");
+    let img = document.createElement("img")
+    img.src = src;
+    icon.appendChild(img);
+    let desc = document.createElement("h5");
+    desc.appendChild(document.createTextNode(text));
+    icon.appendChild(desc);
+    return icon;
+}
