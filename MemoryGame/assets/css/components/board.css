@@ -1,0 +1,43 @@
+section.game .board{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 25px 20px;
+    gap: 10px;
+}
+
+section.game .board .card{
+    width: 115px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+}
+
+section.game .board .card .back{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+    top: 0;
+    z-index: 1;
+    background: url("../../img/cards/card_back.png");
+    transition: all 1s ease-in-out;
+}
+
+section.game .board .card .front{
+    position: absolute;
+    z-index: 10;
+    backface-visibility: hidden;
+}
+
+section.game .board .card.selected {
+    transform: rotateY(180deg);
+}
+
+section.game .board .card.match{
+    transform: rotateY(180deg) scale(0.9);
+}
