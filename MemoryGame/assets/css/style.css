@@ -17,7 +17,7 @@
 }
 
 .mainContainer.game{
-    background: url("../img/bg/bg_Game_mobile.png") var(--background);
+    background: url("../img/bg/bg_game_mobile.png") var(--background);
     background-position: bottom; 
     background-repeat: no-repeat;
 }
