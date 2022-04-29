@@ -1,0 +1,57 @@
+section.game .stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 25px 20px;
+    background: var(--lightBackground);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+section.game .stats .value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--normalFont);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.01em;
+    color: var(--primary);
+    flex-basis: 25%;
+    text-align: center;
+}
+
+section.game .stats .value span{
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 40px;
+}
+
+section.game .stats .foundCards{
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    aspect-ratio: 2;
+    flex-basis: 50%;
+}
+
+section.game .stats .foundCards div{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    aspect-ratio: 1/1;
+    top: 0;
+    z-index: 1;
+    background: url("../img/cards/card_back.png");
+    background-size: contain;
+}
+
+section.game .stats .foundCards div img{
+    width: 65%;
+}
