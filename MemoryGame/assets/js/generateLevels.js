@@ -63,23 +63,12 @@ const generateSingleLevel = (level, userData) => {
 
     let details = document.createElement("div");
     details.classList.add("details");
-    details.appendChild(generateDetail("./assets/img/icons/time.svg", level.winInto.time))
-    details.appendChild(generateDetail("./assets/img/icons/cards.svg", level.winInto.moves))
+    details.appendChild(generateDetail("./assets/img/icons/time.svg", seconds2stringExtended(level.winInto.time)))
+    details.appendChild(generateDetail("./assets/img/icons/cards.svg", level.winInto.moves + " mosse"))
     levelA.appendChild(details)
 
     levelA.appendChild(generateStars(!userData.completated ? 0 : userData.stars))
     return levelA;
-}
-
-const generateDetail = (src, text) => {
-    let icon = document.createElement("div");
-    let img = document.createElement("img")
-    img.src = src;
-    icon.appendChild(img);
-    let desc = document.createElement("h5");
-    desc.appendChild(document.createTextNode(text));
-    icon.appendChild(desc);
-    return icon;
 }
 
 
