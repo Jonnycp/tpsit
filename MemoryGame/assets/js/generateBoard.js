@@ -116,6 +116,7 @@ const generateStartingModal = (level) => {
 
     let modal = document.createElement("div");
     modal.classList.add("modal");
+    animate(modal, "pop", 500)
 
     let h2 = document.createElement("h2");
     h2.appendChild(document.createTextNode("Livello 1"));
@@ -140,8 +141,10 @@ const generateStartingModal = (level) => {
     modal.appendChild(button);
 
     button.addEventListener("click", (e) => {
-        runGame(level)
-        modalContainer.remove();
+        animate(modal, "popReverse", 300, () => {
+            modalContainer.remove();
+            runGame(level)
+        })
     })
 
     modalContainer.appendChild(modal);

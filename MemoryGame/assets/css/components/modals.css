@@ -1,0 +1,90 @@
+.modalContainer{
+    background: rgba(0,0,0,0.5);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContainer .modal{
+    background: var(--light);
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-family: var(--normalFont);
+    font-style: normal;
+    letter-spacing: 0.01em;
+}
+
+.modalContainer .modal h2{
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 39px;
+    letter-spacing: 0.01em;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.modalContainer .modal p, .modalContainer .modal h3{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    color: var(--darkGray);
+    margin-bottom: 20px;
+}
+
+.modalContainer .modal h3{
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0;
+}
+
+.modalContainer .modal .details{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.modalContainer .modal .details div, .modalContainer .modal .details h5{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: var(--primary);
+    gap: 3px;
+}
+
+.modalContainer .modal .details img{
+    width: 20%;
+}
+
+.modalContainer .modal .details h5:nth-Child(2){
+    width: 100%;
+}
+
+.modalContainer .modal button{
+    background: var(--secondary);
+    border-radius: 40px;
+    border: 0;
+    width: 90%;
+    padding: 8px 0;
+    font-family: var(--normalFont);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.01em;
+    color: var(--light);
+}
