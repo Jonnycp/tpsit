@@ -71,3 +71,11 @@ const generateDetail = (src, text) => {
     icon.appendChild(desc);
     return icon;
 }
+
+const animate = (obj, animation, duration, callback) => {
+    obj.dataset.animation = animation;
+    setTimeout(() => {
+        obj.dataset.animation = "idle";
+        callback ? callback() : null;
+    }, duration);
+}
