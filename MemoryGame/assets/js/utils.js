@@ -73,9 +73,13 @@ const generateDetail = (src, text) => {
 }
 
 const animate = (obj, animation, duration, callback) => {
-    obj.dataset.animation = animation;
-    setTimeout(() => {
-        obj.dataset.animation = "idle";
-        callback ? callback() : null;
-    }, duration);
+    return new Promise((resolve, reject) => {
+        obj.dataset.animation = animation;
+        setTimeout(() => {
+            obj.dataset.animation = "idle";
+            callback ? callback() : null;
+            resolve("done")
+        }, duration);
+    })
+    
 }
