@@ -48,7 +48,7 @@ section.game .stats .foundCards div{
     aspect-ratio: 1/1;
     top: 0;
     z-index: 1;
-    background: url("../img/cards/card_back.png");
+    background: url("../../img/cards/card_back.png");
     background-size: contain;
 }
 
