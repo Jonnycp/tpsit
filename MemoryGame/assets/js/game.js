@@ -113,9 +113,21 @@ const addFoundCards = (card) => {
         let foundCards = document.querySelector(".foundCards");
 
         let newCard = document.createElement("div");
+        animate(newCard, "puff", 500).then(() => {
+            let anim = newCard.animate(
+                [
+                    { transform: 'rotate(0)'}, 
+                    { transform: `rotate(${Math.floor(Math.random() * (-60 - 60) + 60)}deg)` }
+                ], {
+                    duration: 100,
+                    easing: 'steps(4, end)',
+                    fill: 'forwards'
+                });
+            anim.play();
+        })
+        
         let img = document.createElement("img");
         img.src = card.querySelector(".back img").src;
-        newCard.style.transform = `rotate(${Math.floor(Math.random() * (-60 - 60) + 60)}deg)`;
         newCard.appendChild(img);
         foundCards.appendChild(newCard);
     }, 800)   
