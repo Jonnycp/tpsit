@@ -153,7 +153,7 @@ const stopTimer = (timer) => {
 }
 
 
-const checkWin = (level, timer) => {
+const checkWin = (level, timer, moves) => {
     if(document.querySelectorAll(".card.match").length == level.cards){
         let time = stopTimer(timer)
         startConfetti();
@@ -161,6 +161,9 @@ const checkWin = (level, timer) => {
             stopConfetti();
             let p = getPoints(level, time);
             updateStars(p)
+            let tempo = string2seconds(document.querySelector(".time span").innerText);
+            let moves = parseInt(document.querySelectorAll(".stats .value span")[1].innerText)
+            document.querySelector(".mainContainer").appendChild(generateEndModal(p, tempo, moves));
         }, 800)
     }
 }
@@ -169,9 +172,9 @@ const getPoints = (level, time) => {
     let moves = parseInt(document.querySelectorAll(".stats .value span")[1].innerText);
     time = string2seconds(time);
 
-    if(moves == level.winInto.moves && time <= level.winInto.time) return 3;
-    if(moves == level.cards && time <= level.winInto.time) return 2;
-    if(moves == level.winInto.move && time > level.winInto.time) return 2;
+    if(moves <= level.winInto.moves && time <= level.winInto.time) return 3;
+    if(moves <= level.cards && time <= level.winInto.time) return 2;
+    if(moves == level.winInto.move && time >= level.winInto.time) return 2;
     return 1;
 }
 
