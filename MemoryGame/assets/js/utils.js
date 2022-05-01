@@ -31,10 +31,12 @@ const getLevelId = () => {
     return queryParams.get("level");
 }
 
-const generateStars = (num, noBorder) => {
+const generateStars = (num, classes) => {
     let stars = document.createElement("div");
     stars.classList.add("stars");
-    noBorder ? stars.classList.add("noBorder") : null;
+    classes ? classes.forEach(c => {
+        stars.classList.add(c)
+    }) : null
 
     for (let i = 0; i < 3; i++) {
         let img = document.createElement("img");
