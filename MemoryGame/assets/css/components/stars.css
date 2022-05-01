@@ -22,3 +22,11 @@
 .stars img:nth-child(2){
     width: 20%;
 }
+
+.stars.big img{
+    width: 30%;
+}
+
+.stars.big img:nth-child(2){
+    width: 35%;
+}
