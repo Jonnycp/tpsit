@@ -1,3 +1,4 @@
+alert("Per il momento visualizzabile solo su iphoneX\nSto lavorando per finire il responsive, riprovare fra qualche giorno")
 const generateLevelsPage = () => {
     let container = document.createElement("div")
     let h2 = document.createElement("h2")
