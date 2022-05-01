@@ -21,6 +21,7 @@
     font-family: var(--normalFont);
     font-style: normal;
     letter-spacing: 0.01em;
+    z-index: 1;
 }
 
 .modalContainer .modal h2{
@@ -87,4 +88,35 @@
     font-size: 18px;
     letter-spacing: 0.01em;
     color: var(--light);
+}
+
+.modalContainer .modal.end .stars{
+    margin-bottom: 25px;
+}
+
+.modalContainer .modal.end .details{
+    justify-content: center;
+    gap: 20px;
+}
+
+.modalContainer .modal.end .buttons{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.modalContainer .modal.end .buttons button{
+    width: 100%;
+    background: var(--primary);
+    flex-basis: 20%;
+}
+
+.modalContainer .modal.end .buttons button.big{
+    width: 100%;
+    background: var(--secondary);
+    flex-basis: 60%;
+}
+
+.modalContainer .modal.end .buttons button.big img{
+    margin-left: 10px;
 }
