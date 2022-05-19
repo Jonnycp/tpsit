@@ -1,0 +1,19 @@
+/*
+#############################
+#       MEMORY GAME         #
+#     ©Jonathan Caputo      #
+#############################
+*/
+
+:root{
+    /* Colors */
+    --primary: #FF7E7E;
+    --light: #FFF;
+    --dark: #000;
+    --gray: #ADADAD;
+    --gradient: linear-gradient(180deg, #000000 0%, rgba(196, 196, 196, 0) 48.44%, #000000 100%);
+
+    /* Fonts */
+    --font: 'Inter', sans-serif;
+
+}
