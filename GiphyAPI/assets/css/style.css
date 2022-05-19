@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mainContainer{
+    margin: 20px 35px 0 35px;
+}
+
+header{
+    display: flex;
+    padding-top: 60px;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+header .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    font-family: var(--font);
+    font-style: normal;
+}
+
+header .title h1{
+    font-size: 50px; /*! Dovrebbe essere 45 */
+    font-weight: 700;
+    line-height: 53px;
+    color: var(--dark);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header .title input{
+    width: 100%;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+header .title input.error{
+    border: 1px solid #ff0000;
+}
+
+header .title span{
+    font-weight: 600;
+    color: #ff0000
+}
+
+header .title button{
+    width: 100%;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    padding: 15px;
+    text-align: center;
+    background: var(--primary);
+    border: 0;
+    border-radius: 15px;
+    cursor: pointer;
+}
