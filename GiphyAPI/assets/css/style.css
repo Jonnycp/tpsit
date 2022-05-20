@@ -70,3 +70,9 @@ header .title button{
     border-radius: 15px;
     cursor: pointer;
 }
+
+#gifContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
