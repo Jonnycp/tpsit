@@ -76,3 +76,22 @@ header .title button{
     flex-wrap: wrap;
     width: 100%;
 }
+
+#gifContainer .gif{
+    position: relative;
+}
+
+#gifContainer .gif::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    background: linear-gradient(180deg, #000000 0%, rgba(196, 196, 196, 0) 48.44%, #000000 100%);
+    width: 100%;
+    height: 100%;
+}
+
+#gifContainer .details{
+    position: absolute;
+    top: 0;
+    padding: 15px 20px;
+}
