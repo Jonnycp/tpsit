@@ -52,6 +52,7 @@ const fetchSearch = (query, trigger="search") => {
     .then(r => r.json())
     .then(r => {
         if(trigger.toLowerCase() == "search" || trigger == 1){
+            reset()
             let gifContainer = document.createElement("section")
             gifContainer.id = "gifContainer";
             r.data.forEach(gif => gifContainer.appendChild(createGif(gif)))
@@ -84,28 +85,36 @@ const createGif = (gif) => {
     gifContainer.appendChild(img)
     
     //Details
+    let details = document.createElement("div")
+    details.classList.add("details")
+
     let infoDiv = document.createElement("div")
     infoDiv.classList.add("info")
 
     let title = document.createElement("h2");
-    title.appendChild(document.createTextNode(gif.title))
+    title.appendChild(document.createTextNode(gif.title.includes("by ") ? gif.title.slice(0, gif.title.indexOf("by ")) : gif.title))
     infoDiv.appendChild(title)
 
     if(gif.user != undefined){
         let user = document.createElement("a")
         user.href = gif.user.profile_url
-        user.appendChild(document.createTextNode(gif.user.display_name))
+        user.appendChild(document.createTextNode("uploaded by" + gif.user.display_name))
         infoDiv.appendChild(user)
     }
-    gifContainer.appendChild(infoDiv)
+    let date = document.createElement("h3");
+    date.appendChild(document.createTextNode("on " + formatDate(gif.import_datetime)))
+    infoDiv.appendChild(date)
+
+    details.appendChild(infoDiv)
 
     //Actions
     let iconsContainer = document.createElement("div")
     iconsContainer.classList.add("icons")
     iconsContainer.appendChild(generateIcon("./assets/img/icons/link.svg", "copyLink"))
     iconsContainer.appendChild(generateIcon("./assets/img/icons/embed.svg", "embedGif"))
-    gifContainer.appendChild(iconsContainer)
+    details.appendChild(iconsContainer)
     
+    gifContainer.appendChild(details)
     return gifContainer;
 }
 
@@ -116,5 +125,21 @@ const generateIcon = (src, action) => {
     img.dataset.action = action
     return img;
 }
+
+const reset = () => {
+    let div = document.querySelector("#gifContainer")
+    if(div){
+        div.remove();
+    }
+}
+
+const formatDate = (date) => {
+    //2016-10-12 19:56:00
+    let parts = date.slice(0, date.indexOf(" ")).split("-");
+    return `${parts[2]}/${parts[1]}/${parts[0]}`
+}
+
 handleChange();
 handleSubmit();
+
+//https://codepen.io/wernight/pen/YyvNoW
