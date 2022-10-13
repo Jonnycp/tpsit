@@ -1,0 +1,3 @@
+[submodule "hero-flex"]
+	path = hero-flex
+	url = https://github.com/Jonnycp/hero-flex
